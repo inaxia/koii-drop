@@ -1,13 +1,12 @@
 const csv = require('csv-parser');
 const fs = require('fs');
-
 const koiSdk = require("@_koi/sdk/common");
-const fsPromises = require("fs/promises");
 const walletpath = "wallet.json";
 const tools = new koiSdk.Common();
 
 
-const filepath = "data.csv"
+const filepath = "data.csv" //path to csv file
+
 const list = []
 
 fs.createReadStream(filepath)
@@ -19,8 +18,8 @@ fs.createReadStream(filepath)
   .on('data', (data) => {
     try {
       console.log(data["NAME"]);
-      console.log(data["TOKEN ADDRESS"]);
-      list.push(data["NAME"]);
+      console.log(data["WALLET ADDRESS"]);
+      list.push(data["WALLET ADDRESS"]);
     } catch (err) {}
   })
 
